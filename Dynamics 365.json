@@ -61,18 +61,14 @@
             "authentication": "client_credentials",
             "call_handling": "generic",
             "test_connection": {
-                "url": "/api/data/v8.2/accounts?$top=2"
+                "url": "/api/data/v8.2/accounts?$top=1"
             },
             "accept": "application/json"
             
         },
         "authOptions": {
             "authUrl": "{token_uri}",
-            "directToken": true,
-            "postData": {
-                "resource": "{tenant_id}",
-                "test":"authoptions"
-            }
+            "directToken": true
         }
         
     },
