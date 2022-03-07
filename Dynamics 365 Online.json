@@ -1,0 +1,96 @@
+{
+    "schema": {
+        "options": {},
+        "crud_objects": {
+            "accounts": {
+                "operations": {
+                    "academicSessions_get": {
+                        "method": "get",
+                        "call": {
+                            "path": "/api/data/v8.2/accounts"
+                        },
+                        "processing_options": {
+                            "output_field": "value"
+                        },
+                        "query_parameters": { 
+                        }
+                    }
+                },
+                "parameters": {},
+                "key": "sourcedId",
+                "resources": {
+                    "sourcedId": "string*",
+                    "status": "string*",
+                    "dateLastModified": "string*",
+                    "metadata": "_:string",
+                    "title": "string*",
+                    "startDate": "string*",
+                    "endDate": "string*",
+                    "type": "string*",
+                    "parent": {
+                        "href": "_:string",
+                        "sourcedId": "_:string*",
+                        "type": "_:string*"
+                    },
+                    "children": {
+                        "href": "_:string",
+                        "sourcedId": "_:string*",
+                        "type": "_:string*"
+                    }
+                }
+            }
+        }
+    },
+    "rest": {
+        "config": {
+            "baseUrl": "{tenant_id}",
+            "get": {
+                "maxPageCount": 500,
+                "query_parameters": {
+                },
+                "pagination": {
+                    "mode": "generic",
+                   "path":[],
+                    "page_size":998,
+                    "params":{
+                        "page":"{page_number}",
+                        "limit":999
+                    }
+                }
+            },
+            "authentication": "client_credentials",
+            "call_handling": "generic",
+            "test_connection": {
+                "url": "/api/data/v8.2/accounts?$top=2"
+            },
+            "accept": "application/json"
+            
+        },
+        "authOptions": {
+            "authUrl": "{token_uri}",
+            "directToken": true,
+            "postData": {
+                "resource": "{tenant_id}",
+                "test":"authoptions"
+            }
+        }
+        
+    },
+    "connection": {
+        "items": [
+            {
+                "name": "page_size",
+                "type": "textbox",
+                "label": "Page Size:",
+                "value": "1000"
+            },
+            {
+                "name": "token_uri",
+                "type": "textbox",
+                "label": "OAuth Token URI",
+                "value": "https://login.microsoftonline.com/88ecf484-0293-42fc-ad9a-15463afa00f9/oauth2/token"
+            }
+
+        ]
+    }
+}
