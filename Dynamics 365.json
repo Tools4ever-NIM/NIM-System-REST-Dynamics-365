@@ -12,8 +12,7 @@
                         "processing_options": {
                             "output_field": "value"
                         },
-                        "query_parameters": { 
-                        }
+                        "query_parameters": {}
                     }
                 },
                 "parameters": {},
@@ -43,34 +42,67 @@
     },
     "rest": {
         "config": {
-            "baseUrl": "{tenant_id}",
+            "baseUrl": "{resource_url}",
             "get": {
                 "maxPageCount": 500,
-                "query_parameters": {
-                },
+                "query_parameters": {},
                 "pagination": {
                     "mode": "generic",
-                   "path":[],
-                    "page_size":998,
-                    "params":{
-                        "page":"{page_number}",
-                        "limit":999
+                    "path": [],
+                    "page_size": 998,
+                    "params": {
+                        "page": "{page_number}",
+                        "limit": 999
                     }
                 }
             },
-            "authentication": "client_credentials",
+            "authentication": "certificate",
             "call_handling": "generic",
             "test_connection": {
                 "url": "/api/data/v8.2/accounts?$top=1"
             },
             "accept": "application/json"
-            
         },
         "authOptions": {
-            "authUrl": "{token_uri}",
-            "directToken": true
+            "authUrl": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token",
+            "scopes": [
+                "https://graph.microsoft.com/.default"
+            ],
+            "type": "signed-jwt",
+            "postData": {
+                "client_id": {
+                    "name": "clientId"
+                },
+                "scope": {
+                    "name": "scope"
+                },
+                "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+                "client_assertion": {
+                    "name": "JWT"
+                },
+                "grant_type": "client_credentials"
+            },
+            "JWT": {
+                "aud": {
+                    "name": "endpoint"
+                },
+                "exp": {
+                    "name": "oneHour"
+                },
+                "iss": {
+                    "name": "clientId"
+                },
+                "jti": {
+                    "name": "guid"
+                },
+                "nbf": {
+                    "name": "now"
+                },
+                "sub": {
+                    "name": "clientId"
+                }
+            }
         }
-        
     },
     "connection": {
         "items": [
@@ -81,12 +113,11 @@
                 "value": "1000"
             },
             {
-                "name": "token_uri",
+                "name": "resource_url",
                 "type": "textbox",
-                "label": "OAuth Token URI",
-                "value": "https://login.microsoftonline.com/88ecf484-0293-42fc-ad9a-15463afa00f9/oauth2/token"
+                "label": "Resource URL:",
+                "value": ""
             }
-
         ]
     }
 }
