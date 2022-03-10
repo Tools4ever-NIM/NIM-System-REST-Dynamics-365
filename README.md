@@ -1,5 +1,9 @@
 # NIM-System-REST-Dynamics-365
 
+## Current Available Data
+- Accounts
+- Contacts
+
 ## Setup Authentication
 
 - Go to your Azure AD portal at https://portal.azure.com/.
@@ -32,3 +36,6 @@
 - Click "New App User"
 - Select App created in Azure
 - Select Appropriate Security roles for permissions
+
+## Reference
+https://docs.microsoft.com/en-us/dynamics365/customer-engagement/web-api/entitytypes?view=dynamics-ce-odata-9
