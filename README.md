@@ -24,7 +24,7 @@
 - In Azure, go to API Permissions.
 - Click Add a Permission.
 - Click Dynamics CRM.
-- Click Application Permissions.
+- Click Deelegated Permissions.
 - Select the following permissions:
   - user_impersonation
 - Click Add Permissions.
