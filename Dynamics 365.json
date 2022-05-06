@@ -169,7 +169,7 @@
             },
             "optionset_accountcategorycode": {
                 "operations": {
-                    "categoriesList": {
+                    "accountcategorycodeList": {
                         "method": "get",
                         "call": {
                             "path": "/api/data/v9.0/EntityDefinitions(LogicalName='account')/Attributes(LogicalName='accountcategorycode')/Microsoft.Dynamics.CRM.PicklistAttributeMetadata"
